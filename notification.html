@@ -50,95 +50,94 @@ var notification = document.getElementById('notification');
 var root = notification.createShadowRoot(); // Deprecated to be replaced with attachShadow();
 
 // ::content deprecated to be replaced with ::slotted
-root.innerHTML = '\
-    <style>\
-        :host(.notification--fadeout) {\
-            opacity: 0.2;\
-        }\
-        :host-context(.green-theme) {\
-            background-color: green; \
-        }\
-        :host {\
-            background-color: #3498db;\
-            border-radius: 5px;\
-            line-height: 1.4; \
-            width: 420px; \
-        }\
-        button {\
-            background: none;\
-            border: none;\
-            box-shadow: none; \
-            cursor: pointer; \
-            position: absolute;\
-            right: 5px; \
-            top: 10px; \
-            width: 27px;\
-        }\
-        button span {\
-            display: none;\
-        }\
-        button svg {\
-            fill: var(--notification-close-button-color, #fff);\
-            height: var(--notification-close-button-size, 27px);\
-            width: var(--notification-button-size, 27px);\
-        }\
-        button:hover svg {\
-            fill: rgba(0,0,0,0.7);\
-        }\
-        p {\
-            color: var(--notification-text-color, #fff); \
-            font-size: small;\
-            margin-bottom: 0; \
-            text-align: right;\
-        }\
-        .wrapper {\
-            padding: 20px; \
-            position: relative;\
-        }\
-        ::content h3, ::content p { \
-            color: #FFF;\
-            margin-top: 0;\
-            padding-top: 0;\
-        }\
-        ::content p:last-child {\
-            margin-bottom: 0;\
-        }\
-        ::content button {\
-            background: none;\
-            border: none;\
-            border-right: 1px solid rgba(0,0,0,0.5);\
-            border-top: 1px solid rgba(0,0,0,0.5);\
-            border-top-right-radius: 5px;\
-            bottom: 0;\
-            box-shadow: none;\
-            color: rgba(0,0,0,0.5);\
-            cursor: pointer;\
-            font-size: 0.8em;\
-            left: 0;\
-            padding: 10px 20px;\
-            position: absolute;\
-        }\
-    </style>\
-    \
-    \
-    <div class="wrapper"> \
-        <button>\
-            <svg viewBox="0 0 36 30">\
-                <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>\
-            </svg>\
-            <span>Close</span>\
-        </button>\
-        <content></content>\
-        <p>1 minute ago</p>\
-    </div>';
+root.innerHTML = `
+    <style>
+        :host(.is-active) {
+            border: 10px solid pink;
+        }
+        :host-context(.green-theme) {
+            background-color: green;
+        }
+        :host {
+            background-color: #3498db;
+            border-radius: 5px;
+            line-height: 1.4;
+            width: 420px;
+        }
+        button {
+            background: none;
+            border: none;
+            box-shadow: none;
+            cursor: pointer;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            width: 27px;
+        }
+        button span {
+            display: none;
+        }
+        button svg {
+            fill: var(--notification-close-button-color, #fff);
+            height: var(--notification-close-button-size, 27px);
+            width: var(--notification-button-size, 27px);
+        }
+        button:hover svg {
+            fill: rgba(0,0,0,0.7);
+        }
+        p {
+            color: var(--notification-text-color, #fff);
+            font-size: small;
+            margin-bottom: 0;
+            text-align: right;
+        }
+        .wrapper {
+            padding: 20px;
+            position: relative;
+        }
+        ::content h3, ::content p {
+            color: #fff;
+            margin-top: 0;
+            padding-top: 0;
+        }
+        ::content p:last-child {
+            margin-bottom: 0;
+        }
+        ::content button {
+            background: none;
+            border: none;
+            border-right: 1px solid rgba(0,0,0,0.5);
+            border-top: 1px solid rgba(0,0,0,0.5);
+            border-top-right-radius: 5px;
+            bottom: 0;
+            box-shadow: none;
+            color: rgba(0,0,0,0.5);
+            cursor: pointer;
+            font-size: 0.8em;
+            left: 0;
+            padding: 10px 20px;
+            position: absolute;
+        }
+    </style>
+
+    <div class="wrapper">
+        <button>
+            <svg viewBox="0 0 36 30">
+                <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+            </svg>
+            <span>Close</span>
+        </button>
+        <content></content>
+        <p>1 minute ago</p>
+    </div>`;
 
     // <content> deprecated to be replaced with <slot>
 
     // DEMONSTRATION OF DEEP - Deprecated - use custom props instead
     //
     // (function() {
-    //    var hawk = document.querySelector('#notification /deep/ p');
-    //    hawk.style.color = 'red';
+    //    var el = document.querySelector('#notification /deep/ p');
+    //    el.style.color = 'red';
     // }())
 
 </script>
